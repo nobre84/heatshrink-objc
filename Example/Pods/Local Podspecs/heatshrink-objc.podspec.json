@@ -2,7 +2,7 @@
   "name": "heatshrink-objc",
   "version": "0.1.0",
   "summary": "Port of heatshrink - A data compression/decompression library for embedded/real-time systems.",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "Small library to easily integrate heatshrink in iOS apps or libraries. Can be consumed by ObjC or Swift targets. Just provide a NSData to encode/decode and get back a encoded/decoded NSData. TBD: streaming mode.",
   "homepage": "https://github.com/nobre84/heatshrink-objc",
   "license": {
     "type": "MIT",
@@ -15,6 +15,7 @@
     "git": "https://github.com/nobre84/heatshrink-objc.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/nobre84",
   "platforms": {
     "ios": "8.0"
   },

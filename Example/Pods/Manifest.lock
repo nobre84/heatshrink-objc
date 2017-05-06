@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  heatshrink-objc: d670dff07ee9959ed5fee37603d605673ed0ec53
+  heatshrink-objc: 5f9adcf1418337b441ee18b3cc0c5af76f020d0d
 
 PODFILE CHECKSUM: ccb67a826450424802ab28a7c094e77bc842cbad
 

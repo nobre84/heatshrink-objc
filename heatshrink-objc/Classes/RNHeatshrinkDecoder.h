@@ -10,6 +10,8 @@
 
 @interface RNHeatshrinkDecoder : NSObject
     
+- (instancetype)initWithWindowSize:(NSInteger)windowBitSize andLookaheadSize:(NSInteger)lookaheadBitSize;
+    
 - (instancetype)initWithBufferSize:(NSInteger)inputBufferSize windowSize:(NSInteger)windowBitSize andLookaheadSize:(NSInteger)lookaheadBitSize;
     
 - (NSData *)decodeData:(NSData *)dataToDecode;

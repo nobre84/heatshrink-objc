@@ -31,7 +31,7 @@
     [super tearDown];
 }
 
-- (void)testEncodeDecodeCycle {
+- (void)testEncodeDecodeCycleWorksForSampleData {
     // Given
     NSData *testData = [self loadResource:@"encodeDecodeCycleTestContent" ofType:@"txt"];
     RNHeatshrinkEncoder *encoder = [RNHeatshrinkEncoder new];
@@ -51,6 +51,28 @@
     // Then
     expect(decodedData.length).to.beGreaterThan(0);
     expect(decodedData).to.equal(testData);
+}
+    
+- (void)testEncodingAndDecodingParamsShouldBeTheSame {
+    // Given
+    NSData *testData = [self loadResource:@"encodeDecodeCycleTestContent" ofType:@"txt"];
+    RNHeatshrinkEncoder *encoder = [[RNHeatshrinkEncoder alloc] initWithWindowSize:8 andLookaheadSize:4];
+    
+    // When
+    NSData *encodedData = [encoder encodeData: testData];
+    
+    // Then
+    expect(testData).notTo.beNil();
+    expect(encodedData.length).to.beGreaterThan(0);
+    expect(encodedData.length).to.beLessThan(testData.length);
+    
+    // When
+    RNHeatshrinkDecoder *decoder = [[RNHeatshrinkDecoder alloc] initWithBufferSize:128 windowSize:10 andLookaheadSize:5];
+    NSData *decodedData = [decoder decodeData:encodedData];
+    
+    // Then
+    expect(decodedData.length).to.beGreaterThan(0);
+    expect(decodedData).notTo.equal(testData);
 }
 
 @end

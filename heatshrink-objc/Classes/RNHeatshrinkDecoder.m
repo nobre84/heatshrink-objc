@@ -22,6 +22,20 @@
 
 @implementation RNHeatshrinkDecoder
     
+- (instancetype)init {
+    if (self = [self initWithWindowSize:10 andLookaheadSize:5]) {
+        
+    }
+    return self;
+}
+    
+- (instancetype)initWithWindowSize:(NSInteger)windowBitSize andLookaheadSize:(NSInteger)lookaheadBitSize {
+    if (self = [self initWithBufferSize:4096 windowSize:windowBitSize andLookaheadSize:lookaheadBitSize]) {
+        
+    }
+    return self;
+}
+    
 - (instancetype)initWithBufferSize:(NSInteger)inputBufferSize windowSize:(NSInteger)windowBitSize andLookaheadSize:(NSInteger)lookaheadBitSize {
     if (self = [super init]) {
         _inputBufferSize = inputBufferSize;
@@ -30,13 +44,6 @@
         _lookaheadBitSize = lookaheadBitSize;
         _lookaheadSize = 1 << lookaheadBitSize;
         _decoder = heatshrink_decoder_alloc(inputBufferSize, windowBitSize, lookaheadBitSize);
-    }
-    return self;
-}
-    
-- (instancetype)init {
-    if (self = [self initWithBufferSize:4096 windowSize:10 andLookaheadSize:5]) {
-        
     }
     return self;
 }
@@ -58,7 +65,7 @@ static void die(NSString *message) {
     size_t data_sz = [dataToDecode length];
     size_t sink_sz = 0;
     size_t poll_sz = 0;
-    size_t out_sz = _inputBufferSize;
+    size_t out_sz = 4096;
     uint8_t out_buf[out_sz];
     memset(out_buf, 0, out_sz);
     
