@@ -5,9 +5,22 @@
 [![License](https://img.shields.io/cocoapods/l/heatshrink-objc.svg?style=flat)](http://cocoapods.org/pods/heatshrink-objc)
 [![Platform](https://img.shields.io/cocoapods/p/heatshrink-objc.svg?style=flat)](http://cocoapods.org/pods/heatshrink-objc)
 
-## Example
+## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```objc
+RNHeatshrinkEncoder *encoder = [[RNHeatshrinkEncoder alloc] initWithWindowSize:8 andLookaheadSize:4];
+
+NSData *testData = [@"ABCABCABCABCABCABC" dataUsingEncoding:NSUTF8StringEncoding];
+
+NSData *encodedData = [encoder encodeData: testData];
+
+RNHeatshrinkDecoder *decoder = [[RNHeatshrinkDecoder alloc] initWithWindowSize:8 andLookaheadSize:4];
+NSData *decodedData = [decoder decodeData:encodedData];
+
+expect(encodedData.length).to.beLessThan(testData.length);
+expect(decodedData).to.equal(testData);
+
+```
 
 ## Requirements
 

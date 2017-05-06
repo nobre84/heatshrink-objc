@@ -67,12 +67,26 @@
     expect(encodedData.length).to.beLessThan(testData.length);
     
     // When
-    RNHeatshrinkDecoder *decoder = [[RNHeatshrinkDecoder alloc] initWithBufferSize:128 windowSize:10 andLookaheadSize:5];
+    RNHeatshrinkDecoder *decoder = [[RNHeatshrinkDecoder alloc] initWithWindowSize:10 andLookaheadSize:5];
     NSData *decodedData = [decoder decodeData:encodedData];
     
     // Then
     expect(decodedData.length).to.beGreaterThan(0);
     expect(decodedData).notTo.equal(testData);
+}
+
+- (void)testEncodingReducesSizeOfOutputGivenEnoughRedundance {
+    RNHeatshrinkEncoder *encoder = [[RNHeatshrinkEncoder alloc] initWithWindowSize:8 andLookaheadSize:4];
+    
+    NSData *testData = [@"ABCABCABCABCABCABC" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *encodedData = [encoder encodeData: testData];
+    
+    RNHeatshrinkDecoder *decoder = [[RNHeatshrinkDecoder alloc] initWithWindowSize:8 andLookaheadSize:4];
+    NSData *decodedData = [decoder decodeData:encodedData];
+    
+    expect(encodedData.length).to.beLessThan(testData.length);
+    expect(decodedData).to.equal(testData);
 }
 
 @end
