@@ -7,7 +7,6 @@
 //
 
 #import "RNViewController.h"
-#import "RNHeatshrinkEncoder.h"
 
 @interface RNViewController ()
 
@@ -19,7 +18,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    RNHeatshrinkEncoder *encoder = [[RNHeatshrinkEncoder alloc] initWithWindowSize:11 andLookaheadSize:5];
 }
 
 - (void)didReceiveMemoryWarning

@@ -53,7 +53,7 @@ static void die(NSString *message) {
     
     heatshrink_encoder_reset(_encoder);
     
-    const uint8_t *data = (const uint8_t*)[dataToEncode bytes];
+    uint8_t *data = (uint8_t*)[dataToEncode bytes];
     size_t data_sz = [dataToEncode length];
     size_t sink_sz = 0;
     size_t poll_sz = 0;
