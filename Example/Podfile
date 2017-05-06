@@ -3,10 +3,10 @@ use_frameworks!
 target 'heatshrink-objc_Example' do
   pod 'heatshrink-objc', :path => '../'
 
-  target 'heatshrink-objc_Tests' do
-    inherit! :search_paths
+end
 
-    pod 'Specta'
-  pod 'Expecta'
-  end
+target 'heatshrink-objc_Tests' do
+    inherit! :search_paths
+    pod 'heatshrink-objc', :path => '../'
+    pod 'Expecta'
 end

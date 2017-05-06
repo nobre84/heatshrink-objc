@@ -1,0 +1,19 @@
+PODS:
+  - Expecta (1.0.5)
+  - heatshrink-objc (0.1.0)
+
+DEPENDENCIES:
+  - Expecta
+  - heatshrink-objc (from `../`)
+
+EXTERNAL SOURCES:
+  heatshrink-objc:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  heatshrink-objc: d670dff07ee9959ed5fee37603d605673ed0ec53
+
+PODFILE CHECKSUM: ccb67a826450424802ab28a7c094e77bc842cbad
+
+COCOAPODS: 1.2.0.beta.1

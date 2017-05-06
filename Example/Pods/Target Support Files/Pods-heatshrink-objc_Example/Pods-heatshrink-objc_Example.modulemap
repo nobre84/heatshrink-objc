@@ -1,0 +1,6 @@
+framework module Pods_heatshrink_objc_Example {
+  umbrella header "Pods-heatshrink-objc_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

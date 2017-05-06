@@ -1,15 +1,7 @@
-#
-# Be sure to run `pod lib lint heatshrink-objc.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'heatshrink-objc'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of heatshrink-objc.'
+  s.summary          = 'Port of heatshrink - A data compression/decompression library for embedded/real-time systems.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +10,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Small library to easily integrate heatshrink in iOS apps or libraries. Can be consumed by ObjC or Swift targets. Just provide a NSData to encode/decode and get back a encoded/decoded NSData. TBD: streaming mode.
                        DESC
 
   s.homepage         = 'https://github.com/nobre84/heatshrink-objc'
